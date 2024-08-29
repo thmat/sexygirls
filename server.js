@@ -19,10 +19,18 @@ app.get('/', (req, res) => {
     console.log(`User IP: ${userIp}`);
     console.log(`Location: ${JSON.stringify(geo)}`);
 
-    // Отправляем информацию о местоположении пользователю
+    // Проверяем, что местоположение определено
     if (geo) {
-        res.send(`Ваше местоположение: ${geo.city}, ${geo.region}, ${geo.country}`);
+        // Если страна - Беларусь (код страны BY)
+        if (geo.country === 'BY') {
+            // Перенаправляем пользователя на Telegram-канал
+            res.redirect('https://t.me/sweetie_foxh'); // Замените на ваш URL Telegram-канала
+        } else {
+            // Если пользователь не из Беларуси, отправляем информацию о местоположении
+            res.send(`Ваше местоположение: ${geo.city}, ${geo.region}, ${geo.country}`);
+        }
     } else {
+        // Если местоположение не удалось определить
         res.send('Не удалось определить местоположение');
     }
 });
