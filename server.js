@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
         // Если страна входит в список стран СНГ или Украины
         if (targetCountries.includes(geo.country)) {
             // Перенаправляем пользователя на Telegram-канал
-            res.redirect('https://t.me/+pt-muoJWM9kzOTQy'); // Замените на ваш URL Telegram-канала
+            res.redirect('https://t.me/+r8clWlKWgecyNTA6'); // Замените на ваш URL Telegram-канала
         } else {
             // Если пользователь не из стран СНГ или Украины, перенаправляем на другую ссылку
             res.redirect(`https://sweet-charmdating.life/?u=ntq8kww&o=a7kkp4a`);
